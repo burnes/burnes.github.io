@@ -5,7 +5,11 @@
     <body>
       Hello World!
       <script type="text/javascript">
-        document.writeln(window.navigator);
+        for i in ['appCodeName', 'appName', 'appVersion', 'platform', 'userAgent', 'vendor'] {
+          document.writeln(i);
+          document.writeln(window.navigator[i]);
+          document.writeln('|');
+        }
         var userAgent = window.navigator.userAgent.toLowerCase(),
           safari = /safari/.test( userAgent ),
           ios = /iphone|ipod|ipad/.test( userAgent );
