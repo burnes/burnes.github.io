@@ -5,16 +5,17 @@
     <body>
       Hello World!
       <script type="text/javascript">
-        for i in ['appCodeName', 'appName', 'appVersion', 'platform', 'userAgent', 'vendor'] {
-          document.writeln(i);
-          document.writeln(window.navigator[i]);
-          document.writeln('|');
+        var props = ['appCodeName', 'appName', 'appVersion', 'platform', 'userAgent', 'vendor'];
+        var i;
+        for (i = 0; i < props.length; i++) {
+          document.writeln('<strong>' + props[i] + '</strong>');
+          document.writeln(window.navigator[props[i]]);
+          document.writeln('<br/>');
         }
         var userAgent = window.navigator.userAgent.toLowerCase(),
           safari = /safari/.test( userAgent ),
           ios = /iphone|ipod|ipad/.test( userAgent );
 
-        document.writeln(userAgent)
         if( ios ) {
             if ( safari ) {
                 document.writeln('Safari');
